@@ -1,0 +1,81 @@
+\begin{thebibliography}{10}
+
+\bibitem{bermanis2013multiscale}
+Amit Bermanis, Amir Averbuch, and Ronald~R Coifman.
+\newblock Multiscale data sampling and function extension.
+\newblock {\em Applied and Computational Harmonic Analysis}, 34(1):15--29,
+  2013.
+
+\bibitem{chatterjee2013adaptive}
+Kalyan Chatterjee, Nilotpal Mrinal, and S~Dasgupta.
+\newblock Adaptive filtering and compression of bio-medical signals using
+  neural networks.
+\newblock {\em International Journal of Engineering and Advanced Technology
+  (IJEAT)}, 2(3):323--327, 2013.
+
+\bibitem{guan2016inferring}
+Yawen Guan, Murali Haran, and David Pollard.
+\newblock Inferring ice thickness from a glacier dynamics model and multiple
+  surface datasets.
+\newblock {\em arXiv preprint arXiv:1612.01454}, 2016.
+
+\bibitem{liu2014self}
+Bao-Di Liu, Yu-Xiong Wang, Bin Shen, Yu-Jin Zhang, and Martial Hebert.
+\newblock Self-explanatory sparse representation for image classification.
+\newblock In {\em European Conference on Computer Vision}, pages 600--616.
+  Springer, 2014.
+
+\bibitem{luthcke2013antarctica}
+Scott~B Luthcke, TJ~Sabaka, BD~Loomis, AA~Arendt, JJ~McCarthy, and J~Camp.
+\newblock Antarctica, greenland and gulf of alaska land-ice evolution from an
+  iterated grace global mascon solution.
+\newblock {\em Journal of Glaciology}, 59(216):613--631, 2013.
+
+\bibitem{NME:NME726}
+Nicolas Moës, John Dolbow, and Ted Belytschko.
+\newblock A finite element method for crack growth without remeshing.
+\newblock {\em International Journal for Numerical Methods in Engineering},
+  46(1):131--150, 1999.
+
+\bibitem{patra2016multilevel}
+Abani Patra, Prashant Shekhar, and E~Ramona Stefanescu.
+\newblock Multilevel methods for sparse representation of topographical data.
+\newblock {\em Procedia Computer Science}, 80:887--896, 2016.
+
+\bibitem{rasmussen2006gaussian}
+Carl~Edward Rasmussen.
+\newblock Gaussian processes for machine learning.
+\newblock 2006.
+
+\bibitem{rufai2014lossy}
+Awwal~Mohammed Rufai, Gholamreza Anbarjafari, and Hasan Demirel.
+\newblock Lossy image compression using singular value decomposition and
+  wavelet difference reduction.
+\newblock {\em Digital Signal Processing}, 24:117--123, 2014.
+
+\bibitem{sandryhaila2014big}
+Aliaksei Sandryhaila and Jose~MF Moura.
+\newblock Big data analysis with signal processing on graphs: Representation
+  and processing of massive data sets with irregular structure.
+\newblock {\em IEEE Signal Processing Magazine}, 31(5):80--90, 2014.
+
+\bibitem{schenk2012new}
+Tony Schenk and Beata Csatho.
+\newblock A new methodology for detecting ice sheet surface elevation changes
+  from laser altimetry data.
+\newblock {\em IEEE Transactions on Geoscience and Remote Sensing},
+  50(9):3302--3316, 2012.
+
+\bibitem{simulationlib}
+S.~Surjanovic and D.~Bingham.
+\newblock Virtual library of simulation experiments: Test functions and
+  datasets.
+\newblock Retrieved January 8, 2017, from \url{http://www.sfu.ca/~ssurjano}.
+
+\bibitem{yang2011learning}
+Jianchao Yang, Jiangping Wang, and Thomas Huang.
+\newblock Learning the sparse representation for classification.
+\newblock In {\em 2011 IEEE International Conference on Multimedia and Expo},
+  pages 1--6. IEEE, 2011.
+
+\end{thebibliography}
