@@ -3,12 +3,12 @@
 \BOOKMARK [1][-]{section.3}{Sparse Representation}{}% 3
 \BOOKMARK [1][-]{section.4}{Experimental setup}{}% 4
 \BOOKMARK [2][-]{subsection.4.1}{Analytical Functions}{section.4}% 5
-\BOOKMARK [2][-]{subsection.4.2}{Practical Application}{section.4}% 6
+\BOOKMARK [2][-]{subsection.4.2}{Application to Observation Data}{section.4}% 6
 \BOOKMARK [3][-]{subsubsection.4.2.1}{Gravity Dataset}{subsection.4.2}% 7
 \BOOKMARK [3][-]{subsubsection.4.2.2}{Altimetry Dataset}{subsection.4.2}% 8
 \BOOKMARK [1][-]{section.5}{Results}{}% 9
 \BOOKMARK [2][-]{subsection.5.1}{Constant Resolution \(\)}{section.5}% 10
-\BOOKMARK [2][-]{subsection.5.2}{Adaptive Resolution}{section.5}% 11
+\BOOKMARK [2][-]{subsection.5.2}{Adaptive Resolution \(\)}{section.5}% 11
 \BOOKMARK [2][-]{subsection.5.3}{Accuracy Results}{section.5}% 12
 \BOOKMARK [2][-]{subsection.5.4}{Practical Application}{section.5}% 13
 \BOOKMARK [1][-]{section.6}{Concluding Remark}{}% 14

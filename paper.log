@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  8 JAN 2017 18:38
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  9 APR 2017 16:23
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -515,20 +515,20 @@ Package caption Info: listings package is loaded.
 (./paper.aux)
 \openout1 = `paper.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 90.
-LaTeX Font Info:    ... okay on input line 90.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 90.
-LaTeX Font Info:    ... okay on input line 90.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 90.
-LaTeX Font Info:    ... okay on input line 90.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 90.
-LaTeX Font Info:    ... okay on input line 90.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 90.
-LaTeX Font Info:    ... okay on input line 90.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 90.
-LaTeX Font Info:    ... okay on input line 90.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 90.
-LaTeX Font Info:    ... okay on input line 90.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 92.
+LaTeX Font Info:    ... okay on input line 92.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 92.
+LaTeX Font Info:    ... okay on input line 92.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 92.
+LaTeX Font Info:    ... okay on input line 92.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 92.
+LaTeX Font Info:    ... okay on input line 92.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 92.
+LaTeX Font Info:    ... okay on input line 92.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 92.
+LaTeX Font Info:    ... okay on input line 92.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 92.
+LaTeX Font Info:    ... okay on input line 92.
 
 (/usr/local/texlive/2016/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -598,9 +598,9 @@ e
 
 Package lastpage Info: Please have a look at the pageslts package at
 (lastpage)             https://www.ctan.org/pkg/pageslts
-(lastpage)             ! on input line 90.
+(lastpage)             ! on input line 92.
 \AtBeginShipoutBox=\box59
-Package hyperref Info: Link coloring OFF on input line 90.
+Package hyperref Info: Link coloring OFF on input line 92.
 (/usr/local/texlive/2016/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
 
@@ -609,9 +609,9 @@ Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
 \c@section@level=\count165
 )
-LaTeX Info: Redefining \ref on input line 90.
-LaTeX Info: Redefining \pageref on input line 90.
-LaTeX Info: Redefining \nameref on input line 90.
+LaTeX Info: Redefining \ref on input line 92.
+LaTeX Info: Redefining \pageref on input line 92.
+LaTeX Info: Redefining \nameref on input line 92.
 
 (./paper.out) (./paper.out)
 \@outlinefile=\write3
@@ -621,84 +621,73 @@ Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: subfig package v1.3 is loaded.
 Package caption Info: End \AtBeginDocument code.
 
-Underfull \hbox (badness 10000) in paragraph at lines 92--92
+Underfull \hbox (badness 10000) in paragraph at lines 94--94
 
  []
 
-LaTeX Font Info:    Try loading font information for U+lasy on input line 92.
+LaTeX Font Info:    Try loading font information for U+lasy on input line 94.
 (/usr/local/texlive/2016/texmf-dist/tex/latex/base/ulasy.fd
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 ) [1
 
-{/usr/local/texlive/2016/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2] [3]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 157.
+{/usr/local/texlive/2016/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+Missing character: There is no Î in font cmr10!
+Missing character: There is no µ in font cmr10!
+ [2]
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 159.
 
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 157.
- [4]
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 159.
+ [3]
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 177.
+               Default added (so using `tbp') on input line 163.
 
-<plotfortest.jpg, id=131, 1284.8pt x 678.535pt>
+<plotfortest.jpg, id=123, 1284.8pt x 678.535pt>
 File: plotfortest.jpg Graphic file (type jpg)
  <use plotfortest.jpg>
-Package pdftex.def Info: plotfortest.jpg used on input line 179.
-(pdftex.def)             Requested size: 433.62pt x 229.00085pt.
-
-Overfull \hbox (21.05504pt too wide) in paragraph at lines 179--180
- [][] 
- []
-
-[5 <./plotfortest.jpg>]
+Package pdftex.def Info: plotfortest.jpg used on input line 165.
+(pdftex.def)             Requested size: 289.07999pt x 152.66379pt.
+ [4 <./plotfortest.jpg>]
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 218.
+               Default added (so using `tbp') on input line 225.
 
-<grace_alt.jpg, id=140, 1774.63pt x 546.04pt>
-File: grace_alt.jpg Graphic file (type jpg)
- <use grace_alt.jpg>
-Package pdftex.def Info: grace_alt.jpg used on input line 220.
-(pdftex.def)             Requested size: 469.75499pt x 144.53326pt.
-
-Overfull \hbox (57.19003pt too wide) in paragraph at lines 220--221
- [][] 
- []
-
-[6 <./grace_alt.jpg>]
+<grace_alt.png, id=136, 1855.93375pt x 554.07pt>
+File: grace_alt.png Graphic file (type png)
+ <use grace_alt.png>
+Package pdftex.def Info: grace_alt.png used on input line 227.
+(pdftex.def)             Requested size: 361.34999pt x 107.87834pt.
+ [5 <./grace_alt.png>]
 
 LaTeX Warning: No positions in optional float specifier.
                Default added (so using `tbp') on input line 242.
 
-<fig3.jpg, id=151, 1602.98875pt x 497.86pt>
+<fig3.jpg, id=152, 1602.98875pt x 497.86pt>
 File: fig3.jpg Graphic file (type jpg)
  <use fig3.jpg>
 Package pdftex.def Info: fig3.jpg used on input line 244.
-(pdftex.def)             Requested size: 433.62pt x 134.67468pt.
-
-Overfull \hbox (21.05504pt too wide) in paragraph at lines 244--245
- [][] 
- []
+(pdftex.def)             Requested size: 361.34999pt x 112.22636pt.
 
 
 LaTeX Warning: No positions in optional float specifier.
                Default added (so using `tbp') on input line 258.
 
-<fig_wave.jpg, id=152, 1630.09pt x 530.98375pt>
+<fig_wave.jpg, id=153, 1630.09pt x 530.98375pt>
 File: fig_wave.jpg Graphic file (type jpg)
  <use fig_wave.jpg>
 Package pdftex.def Info: fig_wave.jpg used on input line 260.
-(pdftex.def)             Requested size: 325.215pt x 105.9356pt.
+(pdftex.def)             Requested size: 289.07999pt x 94.16316pt.
 
-<fig_boha.jpg, id=153, 1630.09pt x 530.98375pt>
+<fig_boha.jpg, id=154, 1630.09pt x 530.98375pt>
 File: fig_boha.jpg Graphic file (type jpg)
  <use fig_boha.jpg>
 Package pdftex.def Info: fig_boha.jpg used on input line 261.
-(pdftex.def)             Requested size: 325.215pt x 105.9356pt.
+(pdftex.def)             Requested size: 289.07999pt x 94.16316pt.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
@@ -712,93 +701,73 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `math shift' on input line 270.
 
-[7 <./fig3.jpg>]
+[6 <./fig3.jpg>]
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 283.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\alpha' on input line 283.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 283.
+
+[7 <./fig_wave.jpg> <./fig_boha.jpg>]
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 280.
+               Default added (so using `tbp') on input line 288.
 
-<sparse.jpg, id=165, 1665.22125pt x 703.62875pt>
+<sparse.jpg, id=179, 1665.22125pt x 703.62875pt>
 File: sparse.jpg Graphic file (type jpg)
  <use sparse.jpg>
-Package pdftex.def Info: sparse.jpg used on input line 282.
-(pdftex.def)             Requested size: 433.62pt x 183.2183pt.
+Package pdftex.def Info: sparse.jpg used on input line 290.
+(pdftex.def)             Requested size: 310.76122pt x 131.30734pt.
 
-Overfull \hbox (21.05504pt too wide) in paragraph at lines 282--283
- [][] 
- []
-
-[8 <./fig_wave.jpg> <./fig_boha.jpg>]
 
 LaTeX Warning: No positions in optional float specifier.
                Default added (so using `tbp') on input line 297.
 
-<alpha_var.jpg, id=179, 1284.8pt x 678.535pt>
-File: alpha_var.jpg Graphic file (type jpg)
- <use alpha_var.jpg>
-Package pdftex.def Info: alpha_var.jpg used on input line 299.
-(pdftex.def)             Requested size: 289.07999pt x 152.66379pt.
+<study.jpeg, id=180, 2569.6pt x 1503.6175pt>
+File: study.jpeg Graphic file (type jpg)
+ <use study.jpeg>
+Package pdftex.def Info: study.jpeg used on input line 299.
+(pdftex.def)             Requested size: 426.39255pt x 249.48572pt.
 
-
-LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 306.
-
-<ablation.jpg, id=180, 1284.8pt x 751.80875pt>
-File: ablation.jpg Graphic file (type jpg)
- <use ablation.jpg>
-Package pdftex.def Info: ablation.jpg used on input line 308.
-(pdftex.def)             Requested size: 325.215pt x 190.3034pt.
-
-Overfull \hbox (5.6477pt too wide) in paragraph at lines 319--331
+Overfull \hbox (13.82759pt too wide) in paragraph at lines 299--300
  [][] 
  []
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Overfull \hbox (5.6477pt too wide) in paragraph at lines 310--322
+ [][] 
+ []
 
- [9 <./sparse.jpg> <./alpha_var.jpg>]
-
-LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 343.
-
-<accumulation.jpg, id=189, 1284.8pt x 751.80875pt>
-File: accumulation.jpg Graphic file (type jpg)
- <use accumulation.jpg>
-Package pdftex.def Info: accumulation.jpg used on input line 345.
-(pdftex.def)             Requested size: 325.215pt x 190.3034pt.
-
-
-LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 353.
-
-<altimtery.jpg, id=190, 1284.8pt x 751.80875pt>
-File: altimtery.jpg Graphic file (type jpg)
- <use altimtery.jpg>
-Package pdftex.def Info: altimtery.jpg used on input line 355.
-(pdftex.def)             Requested size: 325.215pt x 190.3034pt.
- [10 <./ablation.jpg>] [11 <./accumulation.jpg> <./altimtery.jpg>] (./paper.bbl
+[8 <./sparse.jpg>] [9 <./study.jpeg>] (./paper.bbl
 Missing character: There is no Ã in font cmr9!
 Missing character: There is no « in font cmr9!
 )
 
 AED: lastpage setting LastPage
-[12]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 429.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 429.
+[10]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 395.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 395.
  (./paper.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 429.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 429.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 395.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 395.
 Package rerunfilecheck Info: File `paper.out' has not changed.
-(rerunfilecheck)             Checksum: 9EDD89A0A32E067B00FE939B06D752A1;904.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 429.
+(rerunfilecheck)             Checksum: 95699FBE1E89CAF2D3CDC2BFB257D558;919.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 395.
  ) 
 Here is how much of TeX's memory you used:
- 10319 strings out of 493014
- 157151 string characters out of 6133351
- 273167 words of memory out of 5000000
- 13655 multiletter control sequences out of 15000+600000
+ 10303 strings out of 493014
+ 156833 string characters out of 6133351
+ 273182 words of memory out of 5000000
+ 13645 multiletter control sequences out of 15000+600000
  11414 words of font info for 46 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 46i,15n,45p,2016b,352s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 46i,16n,45p,1993b,372s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 ></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
 </usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><
@@ -816,10 +785,10 @@ ve/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/
 /texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2016/t
 exmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb></usr/local/texlive/2016/tex
 mf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb>
-Output written on paper.pdf (12 pages, 1550054 bytes).
+Output written on paper.pdf (10 pages, 2320048 bytes).
 PDF statistics:
- 284 PDF objects out of 1000 (max. 8388607)
- 240 compressed objects within 3 object streams
- 57 named destinations out of 1000 (max. 500000)
- 163 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 275 PDF objects out of 1000 (max. 8388607)
+ 235 compressed objects within 3 object streams
+ 52 named destinations out of 1000 (max. 500000)
+ 148 words of extra memory for PDF output out of 10000 (max. 10000000)
 

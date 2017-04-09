@@ -66,19 +66,21 @@ Sparse representation of Large datasets  }
 % defined using \institute
 %
 \author{
-    Prashant Shekhar\inst{1}%\thanks{Designed and implemented the class style}
+    Prashant Shekhar\inst{}%\thanks{Designed and implemented the class style}
 \and
-    Abani Patra\inst{2}%\thanks{Did numerous tests and provided a lot of suggestions}
+    Abani Patra\inst{}%\thanks{Did numerous tests and provided a lot of suggestions}
+\and 
+    Beata M. Csatho
 \\
 }
 
 % Institutes for affiliations are also joined by \and,
 \institute{
   State University of New York at Buffalo, New York, U.S.A\\
-  \email{pshekhar@buffalo.edu}
-\and
-  State University of New York at Buffalo, New York, U.S.A\\
-  \email{abani@buffalo.edu}\\
+  \email{pshekhar@buffalo.edu, abani@buffalo.edu, bcsatho@buffalo.edu}
+%\and
+%  State University of New York at Buffalo, New York, U.S.A\\
+%  \email{abani@buffalo.edu}\\
  }
 %  \authorrunning{} has to be set for the shorter version of the authors' names;
 % otherwise a warning will be rendered in the running heads. When processed by
@@ -94,7 +96,7 @@ Sparse representation of Large datasets  }
 \keywords{Multiscale,Multiresolution,Kernel methods, Sparse representation}
 
 \begin{abstract}
-In this research we have presented a strategy which aims at benefitting from studying a dataset at different resolutions. The idea of resolutions here stems from the variation of the correlation strength among the different observation instances. The idea behind the approach is to make a large dataset as small as possible by removing all the redundant information so that as per the requirement, the original data could be retrieved with minimized losses on the information front. We have tested our approach on a carefully designed suite of analytical functions along with gravity and altimetry time series datasets from a section of the Greenland Icesheet. Besides providing with a good strategy for data compression, the proposed approach also finds application in efficient sampling procedures and error filtering in the datasets. The results presented in the article clearly establish the the promising nature of the approach along with prospects of its application in different fields of data analytics in the scientific computing as well as other related domains
+In this study, we have presented a strategy that aims at studying an observational dataset at different resolutions to obtain a sparse representation in a computationally efficient manner. Resolution here stems from the variation of the correlation strength among the different obser- vation instances. The idea behind the approach is to make a large dataset as small as possible by removing all the redundant information so that as per the requirement, the original data could be reconstructed with minimized losses of information. We have tested our approach on a carefully designed suite of analytical functions along with gravity and altimetry time series datasets from a section of the Greenland Icesheet. Besides providing a good strategy for data compression, the proposed approach also finds application in efficient sampling procedures and error filtering in the datasets. The results presented in the article clearly establish the promis- ing nature of the approach along with prospects of its application in different fields of data analytics in the scientific computing as well as other related domains
 \end{abstract}
 
 %\setcounter{tocdepth}{2}
@@ -113,15 +115,16 @@ In this research we have presented a strategy which aims at benefitting from stu
 \section{Introduction}
 \label{sect:introduction}
 
-The increase in the amount of data handling in the scientific domain since the past 2 decades has led the researchers to come up with innovative ways of data analysis. The disproportionate increase in the volume of the data availability and computational resources has motivated the research for new ways of data compression and learning procedures. The methodology proposed in this research directly follows from our previous research work \cite{patra2016multilevel} and exploits the correlation structure inherent in the dataset and uses this information to compress the dataset to a reduced number of observation instances while minimizing the amount of information loss. Data compression has been a crucial tool in several fields like image compression \cite{rufai2014lossy} and various techniques like signal processing has contributed well to this approach of analyzing data \cite{sandryhaila2014big}. This approach by its very nature is relevant for a variety of data science domains. Like for example \cite{guan2016inferring} presented a bayesian approach where they have integrated various datasets with a Glacier dynamics model for inferring icesheet thickness in Western Antarctica. Besides being a data compression approach, the proposed methodology can also be thought of as an efficient sampling methods for the output analysis of various Numerical and data driven models. This could be understood as follows. Suppose we wish to generate the velocity profile of some fluid over a land area for which we already know the topography profile. Then based on the sparse representation of the DEM, we can approximately locate the critical locations over that land area which can explain the entire variability in the topography. Therefore if we can get velocity measurements over those critical coordinates, we can get a very good approximation of how the DEM would affect the velocity profile over the area without incorporating much noise through unnecessary measurements.
+The disproportionate increase in the volume of the data in scientific observations and modeling and limitations in computational resources has motivated research in new ways of data compression and learning for converting that data to information. The multiscale and multiresolution methodology proposed in this paper directly follows from our previous work \cite{patra2016multilevel} and exploits the correlation structure inherent in the dataset and uses this information to compress the dataset to a reduced number of observation instances while minimizing the information loss. The related problem of data compression has been a crucial tool in several fields like image compression \cite{rufai2014lossy} and various techniques like signal processing have contributed well to this approach of analyzing data  \cite{sandryhaila2014big}. We focus here on obtaining sparse representations of spatio-temporal datasets where proximity in time and/or space makes reasoning about correlation structures much easier. This approach by its very nature is relevant for a variety of data science domains but we focus here on data from gravity and altimetry of a section of the Greenland Icesheet. Data analytics and data handling approaches have also been widely used in science related domains. Like for example \cite{guan2016inferring} presented a bayesian approach where they have integrated various datasets with a Glacier dynamics model for inferring icesheet thickness in Western Antarctica
 
-Similarly, the proposed strategy of efficient sampling from a dataset could be thought of as a way of minimizing the impact of observational errors in the inferences drawn from the observed data. This is due to the fact that when we remove redundant observations from our data, we also remove the observational uncertainty and error associated with them. Based on this efficient segregation of information from Noise ,the proposed methodology could also be used as a building block for development of approaches for Error filtering. \cite{chatterjee2013adaptive} used Neural Networks for filtering and compression of their biomedical dataset.
+Besides being a data compression approach, the proposed methodology can also be thought of as an efficient sampling method for analyzing high volume outputs of various numerical and data driven models. This could be understood as follows. Suppose we wish to generate the velocity profile of some fluid over a land area for which we already know the topography profile represented by a digital elevation model(DEM). Then based on the sparse representation of the DEM, we can approximately locate the critical locations over that land area which can represent the entire variability in the topography with missing locations quickly computed by an interpolatory process with minimal error. Therefore, if we can get velocity measurements over those critical coordinates, we can get a very good approximation of how the DEM would affect the velocity profile over the area without incurring much error or cost through unnecessary measurements. Thus it also leads to an indirect filtering of errors which might creep in due to large number of measurements. In an approach related to this, Chatterjee and colleagues \cite{chatterjee2013adaptive} used neural networks for filtering and compression of their biomedical dataset.
 
-In the Literature on Finite Elements and other modeling domains, researching have also been trying to develop efficient procedures for capturing of discontinuities either arising from the class of analytical functions used in the analysis part or due to the sheer nature of the physical process begin modeled. In this regard it is relevant to refer to the Extended Finite Element method \cite{NME:NME726} which was based on enriching the solution space for the differential equation being modeled by including several discontinuous functions. The proposed approach can also be thought of efficient way to generate basis functions which can efficiently model these discontinuities by optimal exploitation of correlation structures inherent in the data at different scales and resolutions. The exact meaning of scales and resolution with reference to the proposed procedure would be discussed in detail in the following sections. 
+A singular challenge in these methods is the accurate representation of data with rapid changes. In the literature on finite elements and other modeling methods, researchers have for long been trying to develop efficient procedures for capturing of discontinuities. In this regard it is relevant to refer to the Extended Finite Element method \cite{NME:NME726}  which proposed a solution based on enriching the basis functions used for approximation by including several discontinuous functions. The proposed approach can also be thought of as an efficient way to generate basis functions which can efficiently model such rapid changes by optimal exploitation of correlation structures inherent in the data at different scales and resolutions. The exact meaning of scales and resolution with reference to the proposed procedure will be discussed in detail in the following sections.
 
-Besides testing the approach on a set of analytical functions \cite{simulationlib}, we have also analyzed the procedure on two sets of time series data for the gravity measurements \cite{luthcke2013antarctica} and the altimetry measurements \cite{schenk2012new} at critical locations on the surface of the greenland icesheet. This dataset is a crucial parameter for the performance of our algoirhtm because of the high fluctuations inherent in this data. Also, the application on this dataset clearly brings out the capability of our approach to remove unnecessary noise from the information bulit into the data. 
+Besides testing the approach on a set of analytical functions \cite{simulationlib}, we have also analyzed the procedure on two sets of time series data for the gravity measurements \cite{luthcke2013antarctica} and the altimetry measurements \cite{schenk2012new} at critical locations on the surface of the greenland icesheet. This dataset is a crucial parameter for the performance of our algorithm because of the high fluctuations inherent in this data. Also, the application on this dataset clearly brings out the capability of our approach to remove unnecessary noise from the information built into the data.
 
-The Contributions of this paper can be summarized as follows. Firstly we are introducing this concept of sparse representation which analyzes the inherent structure of the datset and removes redundant information which is beneficial for memory savings and efficient computations. Secondly, unlike previously, here we are using a composition of scales and resolutions which represents the levels and sublevels at which a  dataset can be studied. Due to this capability we are even able to model discontinuities through efficient basis construction.
+The contributions of this paper can be summarized as follows. Firstly, we are introducing methods for sparse representation which analyze the inherent structure of the dataset and remove redundant information which is beneficial for memory savings and efficient computations. Secondly, unlike previously, here we are using a composition of scales and resolutions which represents the levels and sublevels at which a dataset can be studied. Due to this capability we are even able to model rapid changes through efficient basis construction.
+
 
 
 %------------------------------------------------------------------------------
@@ -130,65 +133,59 @@ The Contributions of this paper can be summarized as follows. Firstly we are int
 \section{Multiscale/Multiresolution approach with Kernels }
 \label{sect:approach}
 
-Multiscale and Multiresolution strategies are an effective tool for analysing the underlying structure of a dataset. It has been concluded by several researchers in the past that it is crucial to understand the underlying space in the dataset from where the the given data points may have been sampled. The approach discussed here exploits this idea of understanding the underlying  covariance structure. In approximate terms, the idea is to test the extent to which an observation at a point affects the observation at a  different point at a test distance and then tuning this distance to explain the variation in the data. In our previous work \cite{patra2016multilevel} , we proposed a distributed implementation of this approach so that we could handle the excessively large datasets and draw useful inferences from the given data. Before \cite{patra2016multilevel}, \cite{bermanis2013multiscale} presented an application of the approach on some chosen test functions. However, their motive in that research was to use the procedure for sampling from a dataset at differen scales and they did not explore the idea of having a sparse representation of a dataset. In our previous work we based our experiments on one particular type of kernel which had its properties derived from the exponential covariance structure. The idea was to have a structure where the effect of one point on another point in the considerd space was inversely proportionnal to distance between them. Also the decay in the correlation strength was exponential. The expression for the covariance kernel is shown in equation \ref{1}. Here $\in$ is the parameter which depends on the length scale of the covariance kernel. For more details on the approach the reader should refer to \cite{patra2016multilevel}. And for a detailed treatment on covariance kernel \cite{rasmussen2006gaussian} should be referred. 
+Bermanis and co-workers \cite{bermanis2013multiscale} developed approaches to sampling from a dataset at different scales to build efficient interpolators. In previous work \cite{patra2016multilevel}, building on this foundation we introduced multigrid inspired methodology to develop efficient sparse representations of datasets and illustrated it with application to topographies. The approach as discussed in our previous work \cite{patra2016multilevel} is based on a QR matrix decomposition procedure which identifies the observation instances with maximum amount of information (through the decomposition of the covariance kernel) and uses them along with the kernel specified as a sparse representation for the original dataset. Then this sparse representation could be used to predict the original function at any time as required. The application of the approach has been shown on 4 analytical functions along with two real datasets from the geophysical domain.
+This approach fundamentally relies on a good characterization of the correlation structure. Our previous work relied completely on the classical squared exponential kernels to represent the covariance (\ref{1}). While, this kernel does correctly capture the spatial dependence of many data sets using the parameter ε to choose the scale and allows multiscale representations (see \cite{rasmussen2006gaussian} for details) there are many other data sets for which this is not the best choice.
+
 
 \begin{equation}
-g_\in (r) = exp\left({-\frac{r^2}{\in}}\right)
+g_\epsilon (r) = exp\left({-\frac{r^2}{\epsilon}}\right)
 \label{1}
 \end{equation}
 
-For the current research, we further analyzed this covariance criterion and tried to incorporate a more general covariance structure so that we can manipulate the degree of freedom for the variation of scales or the levels at which we analyze the data. In this research we have proposed the idea of using the rational quadratic kernel in order to map the covariance between the points . The rational quadratic covariance kernel makes sense for this approach as it allows a criterion for multiple scales at once in the analysis. This property of increased degrees of freedom for the covariace kernels has led us to incorporate this concept of multiple resolutions at each scale of the analysis. 
+For the current work, we examine a rational quadratic kernel that allows us to capture more general covariance structure by manipulating both the length scale and an additional resolution parameter $\alpha$ (\ref{2}). Here r represents the distance between two observation points through an appropriate metric and $\epsilon$ represents a length scale similar to the square exponential kernel shown in (\ref{1}). The term $\alpha$ here represents the second variable which also allows us to vary the behavior of the covariance kernel. The presence of two scale parameters in the kernel expression ($\epsilon$ and $\alpha$) enables it to have a mixture of scales and resolutions for different points in the domain.
 
 
 \begin{equation}
-k_{RQ}(r) = \left({1 + \frac{r^2}{2 \alpha \in^2}}\right)^{-\alpha}
+k_{RQ}(r) = \left({1 + \frac{r^2}{2 \alpha \epsilon^2}}\right)^{-\alpha}
 \label{2}
 \end{equation}
 
-Through rational quadratic kernel our approach is able to study and model the data by studying the behavior of the data at differet scales (variation of $\in$) and then adaptively varying the resolution at each scale in order to have a higher accuracy at critical points (for example at a discontinuity) in the domain. The expression for the rational quadratic kernel could be seen in equation \ref{2}. Here r represents the distance between two observation points through an appropriate metric and $\in$ represents the length scale similar to the square exponential kernel shown in eq. \ref{1}. The term $\alpha$ here represents the second variable which also allows to vary the behavior of the covariance kernel. The presence of two scale parameters present in the kernel expression ($\in$ and $\alpha$) enables it to have a mixture of scales and resolutions for different points in the domain.
+Thus, through the use of the rational quadratic kernel our approach is able to study and model the data by studying the behavior of the data at different scales (variation of $\epsilon$) and then adaptively varying the resolution ($\alpha$) at each scale in order to have a higher accuracy at critical points (for example at a discontinuity). The squared exponential on the other hand is limited only to the choice of the length scale.
 
 %______________________________________________________________
-
 \section{Sparse Representation}
 \label{sect:sparse}
 
-The idea of sparse representation introduced in this work is suppose to target the need of Data compression and optimal storage for a given large datset. Data compression has been a well explored topic in the recent past. \cite{liu2014self} discussed it with respect to image classification. \cite{yang2011learning} have implemented this concept in reference to classification problem. One thing to note here is that our approach is quite different from approaches like PCA where a higher dimensional dataset is compressed to a lower dimension with the new coordinates expected to preserve most of the original information. In the current approach we are not reducing the size of the gven data by compressing the dimensions, however our data compression is based on reducing the number of observations itself. Conceptually, the process aims to remove the observations from the dataset which have negligible information contribution given other observation points.  Our Multiscale and Multiresolution based approach achieves this objective of data compression by creating a new data structure which is a compressed representation of the original dataset. This Data structure has 4 components
- \begin{itemize}
- \item Representative data points in the original dataset
- \item Scale ID
- \item Resolution ID
- \item Coordinates for the representative Basis functions
- \end{itemize}
- 
- Here Reresentative data points refer to the selected observations from the dataset. These representative points have also been referred to as the sparse representaton in the current work. Scale ID here represents the scale value inbuilt into $\in$ as shown in \cite{patra2016multilevel}. Resolution ID here is $\alpha$ (when $\alpha$ is assumed to be constant for the whole domain at each scale). The case for variable resolution ($\alpha$) has been discussed in the results section. The fourth component of this data structure refers to the weightage which needs to be given to the covariance values of the prediction points with respect to the representative points. Therefore for prediction at an unknown point, one just needs to find the covariance of this new point with respect to the representative points by using the scale id and the resolution id  in the rational quadratic kernel and then doing a lnear combination of these covariance values by using the coordinates as the weights.
+The idea of sparse representation introduced in this work is suppose to target the need of data compression and optimal storage for a given large dataset. Data compression has been a well explored topic in the recent past. \cite{liu2014self} discussed it with respect to image classification. \cite{yang2011learning} have implemented this concept in reference to classification problem. In the current approach, we are not reducing the size of the given data by compressing the dimensions. Our data compression is based on reducing the number of observations itself by decimating data with minimal information content. Conceptually, the process aims to remove the observations from the dataset which have negligible information contribution given other observation points. Our multiscale and multiresolution based approach achieves this objective of data compression by creating a new data structure which is a compressed representation of the original dataset. This data structure has 4 components- \{Representative data points in the original dataset; scale ID; resolution ID; Coordinates for the representative Basis functions\} .
 
-
-
-\section{Experimental setup}
-In this section we have discussed our entire experimentation setup for the demonstration of the capabilities of our current approach. For the first part of the analysis we have generated the sparse representations for some of the carefully chosen analytical functions which can bring out the crucial properites of our approach. Each of these test functions have several charactertics which make them representative of a big class of practical cases. Each of these test functions would be specifically dealt with in the following part of the current section. 
-
-As mentioned earlier, in order to demonstrate the application of our approach, we have also presented the results of the muli-scale and mlti-resolution approach on two datasets obtained from physical domains. The first dataset consists of NASA GSFC solution for monthly estimates of time-variable gravity in units of cm equivalent water height (cm w.e.) for a global set of 41,168 1x1 arc-degree equal-area mass concentration blocks.The  second dataset consists of Altimetry measurements over the surface of the icesheet at different locations over time. 
-
-\subsection{Analytical Functions}
-
-In this section, we will briefly go over all the test functions \cite{simulationlib} which we have used to demonstrate the performace of our approach. Firstly we will go over the 1 D functions followed by the 2 D test functions. Figure \ref{fig1} shows the test functions used in this study to demonstrate the sparse representation generation capacity of our approach. As mentioned earlier, each of these test functions represent a particular type of complexity which may occur while generating a compressed data representation of a function. Here compressed data representation refers to the procedure where we have some sampled points form an underlying function and then we carefully choose a minimal number of points which can explain the behavior pattern of the functions, thus minimizing the storage and computational resource requirement in the further analysis. The specific functions which we will tackle for this research are as follows:
-
+Representative data points (also referred as  sparse representation) refer to the selected observations from the dataset. Scale ID here represents the scale value inbuilt into $\epsilon$ as shown in \cite{patra2016multilevel}. Resolution ID here is $\alpha$ (when $\alpha$ is assumed to be constant for the whole domain at each scale). The case for variable resolution ($\alpha$) has been discussed in the results section. The fourth component of this data structure refers to the weightage which needs to be given to the covariance values of the prediction points with respect to the representative points. Therefore for prediction at an unknown point, one just needs to find the covariance of this new point with respect to the representative points by using the scale id and the resolution id in the rational quadratic kernel and then doing a linear combination of these covariance values by using the coordinates as the weights.
 
 \begin{figure}[]  % H because we want our figure to stay here
 	\centering
-	\includegraphics[width=6in]{plotfortest.jpg}
+	\includegraphics[width=4in]{plotfortest.jpg}
 	\caption[Optional caption]{Test Functions}
 	\label{fig1} %% for referencing the figure later on
 \end{figure}
+
+
+\section{Experimental setup}
+In this section we have discussed our entire experimentation setup for the demonstration of the capabilities of our current approach. For the first part of the analysis we have generated the sparse representations for some of the carefully chosen analytical functions which can bring out the crucial properties of our approach. Each of these test functions have several characteristics which make them representative of a big class of practical cases. Each of these test functions would be specifically dealt with in the following part of the current section. 
+
+We have also presented the results of the muli-scale and mlti-resolution approach on two datasets obtained from physical domains. The first dataset consists of NASA GSFC solution for monthly estimates of time-variable gravity in units of cm equivalent water height (cm w.e.) for a global set of 41,168 1x1 arc-degree equal-area mass concentration blocks.The  second dataset consists of Altimetry measurements over the surface of the icesheet at different locations over time. 
+
+\subsection{Analytical Functions}
+
+In this section, we will briefly go over all the test functions \cite{simulationlib} which we have used to demonstrate the performance of our approach. Figure \ref{fig1} shows the test functions used in this study to demonstrate the sparse representation generation capacity of our approach. Here compressed data representation refers to the procedure where we have some sampled points form an underly- ing function and then we carefully choose a minimal number of points which can represent the behavior pattern of the functions, thus minimizing the storage and computational resource requirement in the further analysis. The specific functions are:
  
 
-\begin{itemize}
+%\begin{itemize}
 
-\item 1 dimensional function with global and local trends (Gramacy and Lee (2012) test function)
+%\item 1 dimensional function with global and local trends (Gramacy and Lee (2012) test function)
 \begin{equation}
 f(x)  = \frac{sin(10 \pi x)}{2x} + {(x-1)}^4
+\label{3}
 \end{equation}
-\item 1 dimensional function with a discontinuity (Step function)
+%\item 1 dimensional function with a discontinuity (Step function)
 
 \begin{equation}
 f(x) = \left\{
@@ -197,51 +194,54 @@ f(x) = \left\{
             1 & \quad x \geq 250
         \end{array}
     \right.
+\label{4}
 \end{equation}
 
 
-\item 2 dimensional Multimodal function (The Drop Wave function)
+%\item 2 dimensional Multimodal function (The Drop Wave function)
 \begin{equation}
 f(x,y) = - \frac{1 + cos(12 \sqrt{x^2 + y^2})}{0.5 (x^2 + y^2)+ 2}
+\label{5}
 \end{equation}
-\item 2 dimension unimodel function (Bohachevsky function)
+%\item 2 dimension unimodel function (Bohachevsky function)
 \begin{equation}
 f(x,y) = x^2 + 2y^2 - 0.3cos(3 \pi x) - 0.4cos(4 \pi y) + 0.7
+\label{6}
 \end{equation}
 
 
-\end{itemize}
+%\end{itemize}
 
-With these test functions we will be able to test if our approach is able to capture the different trends which may be inherent in the function at different resolutions. Gramacy and Lee function tests the ability of the approach to capture global and local trends. The Step function will be able determine if our multiscale/multiresolution approach is capable of capturing sharp trends and variations in a function. The way in which our approach deals with the gibbs phenomena of ringing at the discontinutiy is also intersting to see. The drop wave function repesents the case of high frequency variation over the entire 2 dimenisonal domain. Therefore, the results in the next section would be important to determine if our appriach is suitable for functions and datasets in higher dimensions. The Last function (Bohachevsky function) represents one of the simple cases for a 2 dimenisonal function. This function is supposed to show the level to which our approach could compress the data and how well our approach could generate a sparse representation for an underlying function. 
-
-
-\begin{figure}[]  % H because we want our figure to stay here
-	\centering
-	\includegraphics[width=6.5in]{grace_alt.jpg}
-	\caption[Optional caption]{Gravity and Altimety data a): Locations of all regions where Gravity time series is available b) The locations chosen for study c) Location of the coordinate (red circle in North East Greenland) for the time series of Altimetry measurements }
-	\label{fig2} %% for referencing the figure later on
-\end{figure}
+Here, (\ref{3}) represents a 1 dimensional function with global and local trends (Gramacy and Lee (2012) test function).(\ref{4}) has a speciality of a discontinuous function and will test the capability of the approach on sharp variations.The way in which our approach deals with the Gibbs phenomena of ringing at the discontinuity is also interesting to see. (\ref{5}) and (\ref{6}) are 2 dimension functions that are multimodal and unimodal respectively. These functions would gauge the performance in higher dimensions.
 
 
 
-
-\subsection{Practical Application}
+\subsection{Application to Observation Data}
 
 The sparse representation generation for the mentioned analytical functions are meant to show if the algorithm is able to perform in an appropriate manner if the dataset is derived from a underlying function having a definite structure. Therefore, although these chosen functions are sufficiently complex based on their attributes, they lack the complexity level of a random dataset sampled from a physical domain because a practical dataset may even lack structure and may be even more difficult to model. 
 
+
+
+\begin{figure}[]  % H because we want our figure to stay here
+	\centering
+	\includegraphics[width=5in]{grace_alt}
+	\caption[Optional caption]{Gravity and Altimetry data a): Locations of all regions where Gravity time series is available b) The locations chosen for study c) Location of the coordinate (red circle in North East Greenland) for the time series of change in altimetry measurements }
+	\label{fig2} %% for referencing the figure later on
+\end{figure}
+
 \subsubsection{Gravity Dataset}
 
-Our first data is a gravity measurements dataset obtained from \cite{luthcke2013antarctica}. This dataset consists of 199 mascons (1x1 arc-degree equal-area mass concentration blocks or mascons) shown in the first figure in Figure \ref{fig2}. Each of these mascons have an associated time series of gravity measurements with them. This gravity data is in the form of monthly estimates of time-variable gravity in units of cm equivalent water height, which has been used as a proxy for the mass change measurements over the greenland icesheet. This data has been obtained after processing of the gravity measurements from the GRACE satellite mission. Since, this dataset consists of gravity measurements time series for each of the 199 mascons and each of these time series have a monthly resolution; Therefore, for the sparse representation in the time domain we have chosen two particular mascons shown in the second figure in Figure \ref{fig2} (Here the green Mascon would be referred to as M2 and the red Mascon as M1 henceforth). These specific mascons have been chosen because one of them is around the center of the icesheet and hence experiences less melting and therefore the gravity change dataset will not involve much fluctuation. However, the second mascon is expected to be associated with high fluctuations because it is closer to the edge of the icesheet and hence experiences a higher melting rate. In scientific terms, the mascon at the edge falls into an area known as the ablation zone and hence is a major contributor in the dynamic thinning of the icesheet.
+Our first data is a gravity measurements dataset obtained from \cite{luthcke2013antarctica}. This dataset consists of 199 mascons (1x1 arc-degree equal-area mass concentration blocks or mascons) shown in the first figure in Figure \ref{fig2}. Each of these mascons have an associated time series of gravity measurements with them. This gravity data is in the form of monthly estimates of time-variable gravity in units of cm equivalent water height, which has been used as a proxy for the mass change measurements over the greenland icesheet. This data has been obtained after processing of the gravity measurements from the GRACE satellite mission. Since, this dataset consists of gravity measurements time series for each of the 199 mascons and each of these time series have a monthly resolution, therefore for the sparse representation in the time domain we have chosen two particular mascons shown in the second figure in Figure \ref{fig2} (Here the green Mascon would be referred to as M2 and the red Mascon as M1 henceforth). These specific mascons have been chosen because one of them is around the center of the icesheet and hence experiences less melting and therefore the gravity change dataset will not involve much fluctuation. However, the second mascon is expected to be associated with high fluctuations because it is closer to the edge of the icesheet and hence experiences a higher melting rate. In scientific terms, the mascon at the edge falls into an area known as the ablation zone and hence is a major contributor in the dynamic thinning of the icesheet.
 
 \subsubsection{Altimetry Dataset}
 
-Our second dataset consist of timeseries of altimetry measurements obtained from SERAC model  \cite{schenk2012new}. These measurements refer to the height of the icesheet observed at different points in time at a particular location, thus making it a time series dataset. This dataset may be regarded a little more complex than the gravity dataset because here the sampling is not uniform in the time domain. For this study we have used the time series from the North Eastern side of Greenland shown as a red point in the third plot in Figure \ref{fig2}
+Our second dataset consist of time series for change in altimetry measurements obtained from SERAC model  \cite{schenk2012new}. These measurements refer to change in height of the icesheet observed at different points in time at a particular location. This dataset may be regarded a little more complex than the gravity dataset because here the sampling is not uniform in the time domain. For this study we have used the time series from the North Eastern side of Greenland. Spatial coordinate is shown as a red point in the third plot in Figure \ref{fig2}
 
 
 
 \begin{figure}[]  % H because we want our figure to stay here
 	\centering
-	\includegraphics[width=6in]{fig3.jpg}
+	\includegraphics[width=5in]{fig3.jpg}
 	\caption[Optional caption]{Prediction from sparse data (a):Gramacy and Lee function (b) Step function}
 	\label{fig3} %% for referencing the figure later on
 \end{figure}
@@ -257,8 +257,8 @@ Following the testing procedure described in the previous section, here we will 
 
 \begin{figure}[]  % H because we want our figure to stay here
 	\centering
-	\includegraphics[width=4.5in]{fig_wave.jpg}
-	\includegraphics[width=4.5in]{fig_boha.jpg}
+	\includegraphics[width=4in]{fig_wave.jpg}
+	\includegraphics[width=4in]{fig_boha.jpg}
 	\caption[Optional caption]{Prediction from sparse data: The drop Wave function (Top row) Bohachevsky function (Bottom row)}
 	\label{fig4} %% for referencing the figure later on
 \end{figure}
@@ -269,45 +269,36 @@ Following the testing procedure described in the previous section, here we will 
 
 \subsection{Constant Resolution ($\alpha$)}
 
-For this first part, the resolution ($\alpha$) is fixed at 0.5 and scale built into ($\in$) is varied during the analysis. Figure \ref{fig3} shows the results for the first two test functions. For Gramacy and Lee function, it can be seen that as the scale is increased, $\in$ is reduced and therefore the rank of the kernel is increased and thus more and more are chosen for the sparse representation. It is found that around 41 points are able to explain the variation in the function. The quantification of the accuracy would be presented in the following subsections. 
+For this first part, the resolution ($\alpha$) is fixed at 0.5 and scale built into ($\epsilon$) is varied during the analysis. Figure \ref{fig3} shows the results for the first two test functions. For Gramacy and Lee function, it can be seen that as the scale is increased, $\epsilon$ is reduced and therefore the rank of the kernel is increased and thus more and more are chosen for the sparse representation. It is found that around 41 points are able to explain the variation in the function. The quantification of the accuracy would be presented in the following subsections. 
 
-For the step function, we employed a similiar procedure to find a sparse representation. However, it could be observed that even with 148 of the original 200 points, we can still see the ringing effect at the discontinuity. These fluctuation do not go away even if we use all the original points and construct the basis functions. Therefore for dealing with this we have used the concept of adaptive resolution discussed in the next subsection.
+For the step function, we employed a similar procedure to find a sparse representation. However, it could be observed that even with 148 of the original 200 points, we can still see the ringing effect at the discontinuity. These fluctuation do not go away even if we use all the original points and construct the basis functions. Therefore for dealing with this we have used the concept of adaptive resolution discussed in the next subsection.
 
-Figure \ref{fig4} show the effect of variation of scales and predicting the underlying function from the sparse representation obtained at different scales for the Wave and Bohachevsky function. The top two figures show that when the number of critical points chosen are increased from 110 to 940 (as a result of increament in scale) for the drop wave function, the predicted function from this sparse representation becomes highly accurate as shown in Table \ref{tab1}. For the Bohachevsky function, the compression possible is very extreme and it able to reproduce a close approximate of the original function with just 13 points. Based on the behavior of these test function, the observation points chosen at strategic locations at differen scales have been shown in Figure \ref{fig5}. Here the blue points show the original points available and the chosen points for sparse representation are circled in red. For the 2 dimension functions, the points are shown in the XY plane instead of the 3 dimenion plane for better clarity
+Figure \ref{fig4} show the effect of variation of scales and predicting the underlying function from the sparse representation obtained at different scales for the Wave and Bohachevsky function. The top two figures show that when the number of critical points chosen are increased from 110 to 940 (as a result of increment in scale) for the drop wave function, the predicted function from this sparse representation becomes highly accurate as shown in Table \ref{tab1}. For the Bohachevsky function, the compression possible is very extreme and it able to reproduce a close approximate of the original function with just 13 points. Based on the behavior of these test function, the observation points chosen at strategic locations at different scales have been shown in Figure \ref{fig5}. Here the blue points show the original points available and the chosen points for sparse representation are circled in red. For the 2 dimension functions, the points are shown in the XY plane instead of the 3 dimension plane for better clarity
 
+
+
+
+
+
+\subsection{Adaptive Resolution ($\alpha$)}
+
+Due to Gibbs phenomenon, the prominent ringing effect in the modeling of the step function has motivated us to use the second degree of freedom in the covariance kernel. This is done by adaptively varying the resolution parameter over the entire domain at each scale. In order to do so, at each scale, the resolution at a point is defined as a function of its distance from the point of discontinuity. Therefore, one piece of information which goes into modeling of discontinuity through this method is that the point of discontinuity should be approximately known. The precision with which the modeler knows the location of discontinuity, the more accurate would be results. For the results shown in Figure \ref{fig6} (top left quadrant), we used the values of resolution at a point as 0.5 times the distance from the discontinuity at each scale. Therefore, at very close proximity to the discontinuity, alpha would be very small and hence, it will affect a very small region. Thus, this sort of formulation for the resolution ensures that in the limit towards the point of discontinuity, the region of impact of an observation becomes zero and therefore it doesn't cause any ringing or unnecessary fluctuations. This pattern of defining the sparse representation by using an adaptive combination of variation in scales and resolution also leads to a variation in the the pattern in which points are chosen for sparse representation. It could be seen that unlike the top right plot in Figure \ref{fig5}, where points were uniformly chosen, here (plot 1 in top left quadrant of Figure \ref{fig6}), more points are automatically chosen near the discontinuity, so that it can be accurately modeled. The result of prediction from the sparse representation has been shown in plot 2 in this top left quadrant of Figure \ref{fig6}. The fact that ringing effect has almost completely disappeared with just 52 points justifies our use of an adaptive resolution approach. 
 
 
 \begin{figure}[]  % H because we want our figure to stay here
 	\centering
-	\includegraphics[width=6in]{sparse.jpg}
+	\includegraphics[width=4.3in]{sparse.jpg}
 	\caption[Optional caption]{Sparse Representation for the test functions at Relevant scales}
 	\label{fig5} %% for referencing the figure later on
 \end{figure}
 
 
 
-
-
-\subsection{Adaptive Resolution}
-
-Due to Gibbs phenomenon, the prominent ringing effect in the modeling of the step function has motivated us to use the second degree of freedom in the covariance kernel. This is done by adaptively varying the resolution parameter over the entire domain at each scale. In order to do so, at each scale, the resolution at a point is defined as a function of its distance from the point of discontinuity. Therefore, one piece of information which goes into modeling of discontinuity through this method is that the point of disconituity should be approximately known. The precision with which the modeler knows the location of disconituity, the more accurate would be results. For the results shown in Figure \ref{fig6}, we used the values of resolution at a point as 0.5 times the distance from the discontinuiy at each scale. Therefore, at very close proximity to the disconituity, alpha would be very small and hence, it wil affect a very small region. Thus, this sort of formulation for the resolution ensures that in the limit towards the point of discontinuity, the region of imapct of an observation becomes zero and therefore it doesn't cause any ringing or unnecessary fluctuations. This pattern of defining the sparse representation by using an adaptive combination of variation in scales and resolution also leads to a variation in the the pattern in which points are chosen for sparse representation. It could be seen that unlike the top right plot in Figure \ref{fig5}, where points were uniformly chosen, here (left plot in Figure \ref{fig6}), more points are automatically chosen near the discontinuity, so that it can be accurately modeled. The result of prediction from the sparse representation has been shown in the right plot in Figure \ref{fig6}. The fact that ringing effect has almost completely disappeared with just 52 points justifies our use of an adaptive resolution approach. 
-
-
-
 \begin{figure}[]  % H because we want our figure to stay here
 	\centering
-	\includegraphics[width=4in]{alpha_var.jpg}
-	\caption[Optional caption]{Sparse representation (Left) and Prediction (Right) for step function with variable $\alpha$}
+	\includegraphics[width=5.9in]{study.jpeg}
+	\caption[Optional caption]{\textbf{Top Left quadrant}:  plot 1 shows the sparse representation and plot 2 shows the prediction for step function with variable $\alpha$. \textbf{Top Right quadrant}: Gravity Dataset (Mascon M1). \textbf{Bottom left quadrant}: Gravity Dataset (Mascon M2). \textbf{Bottom right quadrant}: Altimetry Dataset}
 	\label{fig6} %% for referencing the figure later on
-\end{figure}
-
-
-
-\begin{figure}[]  % H because we want our figure to stay here
-	\centering
-	\includegraphics[width=4.5in]{ablation.jpg}
-	\caption[Optional caption]{Gravity Dataset (Mascon M1)}
-	\label{fig7} %% for referencing the figure later on
 \end{figure}
 
 
@@ -340,43 +331,18 @@ Table \ref{tab1} shows the root mean square error of prediction at 20 random poi
 
 
 
-\begin{figure}[]  % H because we want our figure to stay here
-	\centering
-	\includegraphics[width=4.5in]{accumulation.jpg}
-	\caption[Optional caption]{Gravity Dataset (Mascon M2)}
-	\label{fig8} %% for referencing the figure later on
-\end{figure}
-
-
-
-
-\begin{figure}[]  % H because we want our figure to stay here
-	\centering
-	\includegraphics[width=4.5in]{altimtery.jpg}
-	\caption[Optional caption]{Altimetry Dataset}
-	\label{fig9} %% for referencing the figure later on
-\end{figure}
-
-
-
-
-
 
 \subsection{Practical Application}
 
-For the gravity dataset, the sparse representation of the time series at Mascon M1 has been shown in Figure \ref{fig7}. Here, the right hand side plots show the points which where chosen for sparse representation at different scale. The corresponding left hand side plots show the the prediction of the underlying function through these sparse datasets. It can be seen that as scale is increased the prediction is becoming accurate. Here, the original number of points avaialble is 127 from which 57 points have been chosen at scale 5. This kind of sparse representation also helps as it may also help in noise removal as seen in the bottom left plot in Figure \ref{fig7}. Similar results have been obtained for Mascon M2 (shown in Figure \ref{fig8}).
+For the gravity dataset, the sparse representation of the time series at Mascon M1 has been shown in the plots in top right quadrant of Figure \ref{fig6}. Here, the right hand side plots show the points which where chosen for sparse representation at different scale. The corresponding left hand side plots show the the prediction of the underlying function through these sparse datasets. It can be seen that as scale is increased the prediction is becoming accurate. Here, the original number of points available is 127 from which 57 points have been chosen at scale 5. This kind of sparse representation also helps as it may also help in noise removal as seen in the bottom left plot in this top right quadrant of Figure \ref{fig6}. Similar results have been obtained for Mascon M2 (shown in bottom left quadrant of Figure \ref{fig6}).
 
-For the altimetry dataset we have just shown it for one coordinate at the edge of the icesheet shown in the righmost plot in Figure \ref{fig2}. Here also we have obtained similar results where we are able to generate the sparse representation from the orginal dataset (this time series contains 23 time instances). Here it could be seen that with around 8 points at scale 5 the algorithm is able to capture most of the variability in the dataset. However, at the starting time instances, due to very sparse samlpling, the fit is not very accurate as there is clear lack of information during the starting months.
+For the altimetry dataset we have just shown it for one coordinate at the edge of the icesheet shown in the rightmost plot in Figure \ref{fig2}. Here also we have obtained similar results where we are able to generate the sparse representation from the original dataset (this time series contains 23 time instances). Here it could be seen that with around 8 points at scale 5 the algorithm is able to capture most of the variability in the dataset (bottom right quadrant of Figure \ref{fig6}). However, at the starting time instances, due to very sparse sampling, the fit is not very accurate as there is clear lack of information during the starting months.
 
 \section{Concluding Remark} 
 
 In this research we proposed a strategy in which we can compress a dataset by removing all the unnecessary observations and retaining only the valuable observation instances. The approach as discussed in our previous work \cite{patra2016multilevel} is based on a QR matrix decomposition procedure which identifies the observation instances with maximum amount of information (through the decomposition of the covariance kernel) and uses them along with the kernel specified as a sparse representation for the original dataset. Then this sparse representation could be used to predict the original function at any time as required. The application of the approach has been shown on 4 analytical functions along with two real datasets from the geophysical domain. 
 
- The approach is shown to be highly useful in a variety of settings. However, there are still several wasy in which it could be improved for making the implementation more practical. Firstly, although we introduced a distributed implementation of the approach in \cite{patra2016multilevel}, still improvements have to made there for better scaling. Due to the vast availability of literature in Kernel methods, there may be some way to capture the covariance between the data points in an even better way. Some Future work can also  done in extending the approach to the spatio-temporal modeling domain.
-
-
-
-
+The approach is shown to be highly useful in a variety of settings. However, there are still several ways in which it could be improved for making the implementation more practical. Firstly, although we introduced a distributed implementation of the approach in \cite{patra2016multilevel}, still improvements have to made there for better scaling. Due to the vast availability of literature in Kernel methods, there may be some way to capture the covariance between the data points in an even better way. Comparison with existing data compression approaches related to Fourier representations can also lead us to better hybrid approaches. Some future work can also  done in extending the approach to the spatio-temporal modeling domain.
 
 
 
